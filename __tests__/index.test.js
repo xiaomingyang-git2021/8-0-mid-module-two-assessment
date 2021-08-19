@@ -182,11 +182,11 @@ describe("filterByGenre()", () => {
 
 describe("getAllMoviesReleasedAtOrBeforeYear()", () => {
   test("should use the `.filter()` method", () => {
-    const text = filterByGenre.toString();
+    const text = getAllMoviesReleasedAtOrBeforeYear.toString();
     expect(text).toMatch(/\.filter\(.*\)/s);
   });
   test("should throw an error if there are no movies", () => {
-    const actual = () => filterByGenre([]);
+    const actual = () => getAllMoviesReleasedAtOrBeforeYear([]);
     expect(actual).toThrow();
   });
   test("should return all movies where the `released` date is equal to or less than the year given", () => {
