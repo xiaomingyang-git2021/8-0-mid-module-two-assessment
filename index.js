@@ -58,17 +58,15 @@ return titleArr
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating(movies, [rating = "G"]) {
+function checkIfAnyMovieHasRating(movies, rating = "G") {
   if(movies.length<1){
     throw "error message"
   }
-  movies.some((movie)=>{
-    if(movies.rating==="G"){
+  movies.some((movie)=>movie.rating==="G")
       return true;
-    } else {
-      return false;
-    }
-  })
+     
+  
+  
 }
 
 /**
@@ -87,7 +85,15 @@ function checkIfAnyMovieHasRating(movies, [rating = "G"]) {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  if(movies.length<1){
+    throw "error message";
+  }
+  if(movies.imdbID !== movies.title){
+    return null;
+  }
+  return movies.find(movie => movie.imdbID === id)
+}
 
 /**
  * filterByGenre()
