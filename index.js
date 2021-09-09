@@ -63,10 +63,11 @@ function checkIfAnyMovieHasRating(movies, rating = "G") {
     throw "error message"
   }
   movies.some((movie)=>movie.rating==="G")
+  // movies.some((movie)=>{
+  //   if(movie.rating==="G"){
       return true;
-     
-  
-  
+  //   } 
+  // })
 }
 
 /**
@@ -89,10 +90,11 @@ function findById(movies, id) {
   if(movies.length<1){
     throw "error message";
   }
-  if(movies.imdbID !== movies.title){
+  if(id === undefined){
     return null;
   }
   return movies.find(movie => movie.imdbID === id)
+  
 }
 
 /**
@@ -117,7 +119,19 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  if(!movies.length){
+    throw "error message";
+  }
+  if(genre === undefined){
+    return [];
+  }
+  let filterByGenre = [];
+  let input = genre.toUpperCase();
+  const result = movies.filter(movie=>movie.genre.toUpperCase().includes(input));
+  return result;
+
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
